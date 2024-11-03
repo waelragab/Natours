@@ -1,0 +1,88 @@
+.popup {
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba($color-black, 0.8);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 2500;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s;
+  &__content {
+    width: 80vw;
+    border-radius: 4px;
+    @include absCenter;
+    background-color: $color-white;
+    z-index: 2500;
+    box-shadow: 0 1.5rem 4rem rgba($color-black, 0.4);
+    display: table;
+    overflow: hidden;
+    transition: all 0.4s;
+    transform: translate(-50%, -50%) scale(0.5);
+    @include respond(tab-port) {
+      width: 90vw;
+    }
+  }
+  &:target {
+    opacity: 1;
+    visibility: visible;
+  }
+  &:target &__content {
+    transform: translate(-50%, -50%) scale(1);
+  }
+  &__left {
+    width: calc(100% / 3);
+    display: table-cell;
+    @include respond(tab-port) {
+      display: block;
+      width: 100%;
+      overflow: hidden;
+    }
+  }
+  &__right {
+    width: calc((100% / 3) * 2);
+    display: table-cell;
+    vertical-align: middle;
+    padding: 3rem 5rem;
+    @include respond(tab-port) {
+      display: block;
+      width: 100%;
+      text-align: center;
+    }
+  }
+  &__img {
+    display: block;
+    width: 100%;
+    @include respond(tab-port) {
+      display: inline-block;
+      width: 50%;
+      float: left;
+    }
+  }
+  &__text {
+    font-size: 1.4rem;
+    margin-bottom: 4rem;
+    column-count: 2;
+    column-gap: 4em;
+    column-rule: 1px solid $color-light-gray-4;
+    hyphens: auto;
+    @include respond(phone) {
+      column-count: 1;
+    }
+  }
+  &__close {
+    font-size: 3rem;
+    color: $color-black;
+    display: inline-block;
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    text-decoration: none;
+    transition: all 0.3s;
+    &:hover {
+      color: $dark-green;
+      transform: scale(1.05);
+    }
+  }
+}

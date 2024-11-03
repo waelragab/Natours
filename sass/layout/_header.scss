@@ -1,0 +1,57 @@
+.header {
+  position: relative;
+  height: 95vh;
+  background-image: linear-gradient(
+      to right,
+      rgba($light-green, 0.8),
+      rgba($dark-green, 0.8)
+    ),
+    url("../img/hero.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+  border-radius: 1.6rem;
+  @include respond(phone) {
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 90vh, 0 100%);
+    clip-path: polygon(0 0, 100% 0, 100% 90vh, 0 100%);
+  }
+  .main-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 4rem;
+    .nav-logo {
+      height: 4rem;
+    }
+    .menu-btn {
+      width: 4.8rem;
+      height: 4.8rem;
+      border: none;
+      background-color: $color-white;
+      color: $color-dark-gray;
+      border-radius: 50%;
+      @include flexCenter();
+      font-size: 2.4rem;
+      box-shadow: 0 0 1.2rem rgba($color-black, 0.2);
+      transition: all 0.3s ease-out;
+      &:hover {
+        background-color: $color-dark-gray;
+        color: $color-white;
+        transform: scale(1.1);
+      }
+    }
+  }
+  .hero-content {
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
